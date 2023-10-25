@@ -5,7 +5,7 @@ Description: Lambda that adds a weekly build schedule to bitbucket repositories 
 Parameters:
   AppName:
     Type: String
-    Default: "bob-the-builder"
+    Default: "weekly-build-scheduler"
     AllowedPattern: ^[-a-z]+$
     Description: "Note: Must be all lowercase"
   EnvName:
@@ -50,7 +50,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: !Ref AppName
-      Handler: bob_the_builder.lambda_handler
+      Handler: weekly_build_scheduler.lambda_handler
       Runtime: python3.11
       CodeUri: lambda/
       Description: Lambda that adds a weekly build schedule to bitbucket repositories associated with services that are not actively being developed.
